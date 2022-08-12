@@ -1,12 +1,11 @@
+import { useLocation } from "react-router-dom";
 import { LateralBar } from "../LateralBar/LateralBar";
 import Navbar from "../navbar/Navbar";
-import { Route, Routes } from "react-router-dom";
-import RequisionM from "../../components/dashboardSections/requisicionM/RequisionM";
-import { RequisionIC } from "../../components/dashboardSections/requisicionIC/RequisionIC";
-import Eventos from "../../components/dashboardSections/eventos/Eventos";
-import RequisionMobiliario from "../../pages/ModuloRequision/RequisionMobiliario";
+import RouterPages from "./RouterPages";
 
 export default function Dashboard() {
+  const location = useLocation();
+
   return (
     <div className="flex bg-slate-50">
       <LateralBar />
@@ -18,22 +17,16 @@ export default function Dashboard() {
           <div className="p-3">
             <h1 className="ml-5">
               <span className="font-semibold text-lg">Dashboard</span>
-              <p className="text-sm">Home - Dashboard</p>
+              {location.state ? (
+                <p className="text-sm">Home - {location.state.name}</p>
+              ) : (
+                <p className="text-sm">Home - Dashboard</p>
+              )}
             </h1>
           </div>
         </div>
         <div>
-          <div className="w-full flex flex-wrap">
-            <Routes>
-              <Route path="/ModuloReqMobiliario" element={<RequisionM />} />
-              <Route
-                path="/moduloreqmobiliario/reqmobiliario"
-                element={<RequisionMobiliario />}
-              />
-              <Route path="/ModuloReqInvCompra" element={<RequisionIC />} />
-              <Route path="/ModuloEventos" element={<Eventos />} />
-            </Routes>
-          </div>
+          <RouterPages />
         </div>
       </div>
     </div>
