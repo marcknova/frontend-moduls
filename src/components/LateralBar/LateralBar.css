@@ -1,0 +1,38 @@
+.sidebar-item {
+    padding: .70em 1em;
+    font-size: 1.1em;
+    display: block;
+    transition: background-color .15s;
+}
+
+.sidebar-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-title span i {
+    display: inline-block;
+    width: 1.5em;
+}
+
+.sidebar-title .fa-angle-down {
+    transition: transform .3s;
+}
+
+.sidebar-item {
+    cursor: pointer;
+}
+
+.sidebar-item.open .sidebar-title .fa-angle-down {
+    transform: rotate(180deg);
+}
+
+.sidebar-content {
+    padding-top: .25em;
+    height: 0;
+    overflow:hidden;
+}
+
+.sidebar-item.open .sidebar-content {
+    height: auto;
+}

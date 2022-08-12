@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Dashboard",
+        "icon": "dashboard",
+        "children": [
+            {
+                "title": "Requisicion M",
+                "icon": "computer",
+                "path": "/"
+            },
+            {
+                "title": "Requisicion IC",
+                "icon": "computer",
+                "path": "/"
+            },
+            {
+                "title": "Eventos",
+                "icon": "computer",
+                "path": "/"
+            }
+        ]
+    }
+]
