@@ -7,20 +7,24 @@ export default function Dashboard() {
   const location = useLocation();
 
   return (
-    <div className="flex bg-slate-50">
+    <div className="flex bg-slate-50 dark:bg-neutral-800">
       <LateralBar />
       <div className="w-full">
-        <div>
+        <div className="sticky top-0">
           <Navbar />
         </div>
         <div>
           <div className="p-3">
             <h1 className="ml-5">
-              <span className="font-semibold text-lg">Dashboard</span>
+              <span className="font-semibold text-lg dark:text-white">
+                Dashboard
+              </span>
               {location.state ? (
-                <p className="text-sm">Home - {location.state.name}</p>
+                <p className="text-sm dark:text-gray-400">
+                  Home - {location.state.name}
+                </p>
               ) : (
-                <p className="text-sm">Home - Dashboard</p>
+                <p className="text-sm dark:text-gray-400">Home - Dashboard</p>
               )}
             </h1>
           </div>

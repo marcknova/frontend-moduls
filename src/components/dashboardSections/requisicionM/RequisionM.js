@@ -4,9 +4,9 @@ const RequisionM = () => {
   return (
     <>
       <div className="w-[45%] mx-5">
-        <div className="max-w-lg my-8 rounded-lg bg-white border border-gray-200 shadow-lg ml-auto mr-auto h-[72%]">
+        <div className="max-w-lg my-8 rounded-lg bg-white border dark:bg-neutral-900 border-gray-200 dark:border-none shadow-lg ml-auto mr-auto h-[72%]">
           <div className="p-5">
-            <h5 className="mb-2 text-xl font-bold tracking-tight text-black">
+            <h5 className="mb-2 text-xl font-bold tracking-tight text-black dark:text-white">
               Solicitar Requisicion
             </h5>
             <p className="mb-3 text-sm font-normal text-gray-400">
@@ -37,9 +37,9 @@ const RequisionM = () => {
         </div>
       </div>
       <div className="w-[45%] mx-5">
-        <div className="max-w-lg my-8 rounded-lg bg-white border border-gray-200 shadow-lg ml-auto mr-auto h-[72%]">
+        <div className="max-w-lg my-8 rounded-lg bg-white border dark:bg-neutral-900 border-gray-200 dark:border-none shadow-lg ml-auto mr-auto h-[72%]">
           <div className="p-5">
-            <h5 className="mb-2 text-xl font-bold tracking-tight text-black">
+            <h5 className="mb-2 text-xl font-bold tracking-tight text-black dark:text-white">
               Seguimiento de Requisicion
             </h5>
             <p className="mb-3 text-sm font-normal text-gray-400">
@@ -70,9 +70,9 @@ const RequisionM = () => {
         </div>
       </div>
       <div className="w-[45%] mx-5">
-        <div className="max-w-lg my-8 rounded-lg bg-white border border-gray-200 shadow-lg ml-auto mr-auto h-[72%]">
+        <div className="max-w-lg my-8 rounded-lg bg-white border dark:bg-neutral-900 border-gray-200 dark:border-none shadow-lg ml-auto mr-auto h-[72%]">
           <div className="p-5">
-            <h5 className="mb-2 text-xl font-bold tracking-tight text-black">
+            <h5 className="mb-2 text-xl font-bold tracking-tight text-black dark:text-white">
               Estado de las requisiciones
             </h5>
             <p className="mb-3 text-sm font-normal text-gray-400">

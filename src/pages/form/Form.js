@@ -1,13 +1,15 @@
 import { Formik, Form } from "formik";
 import Img from "./officeWallpaper.jpg";
-import validate from "../hooks/Validation";
-import TextInput from "../hooks/TextInput";
+import validate from "../../hooks/Validation";
+import TextInput from "../../hooks/TextInput";
 
 const Forms = () => {
   return (
     <>
       <div className="w-full text-center">
-        <h1 className="my-8 font-bold text-xl">Formulario de Requisiciones</h1>
+        <h1 className="my-8 font-bold text-xl dark:text-white">
+          Formulario de Requisiciones
+        </h1>
       </div>
       <div className="w-full h-[32rem] p-5 flex justify-center">
         <div className="w-1/5 h-auto">

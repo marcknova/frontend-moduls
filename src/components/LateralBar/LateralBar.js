@@ -11,11 +11,11 @@ export const LateralBar = () => {
   };
 
   return (
-    <div className="w-1/4">
-      <nav className="w-full bg-neutral-800 h-auto p-5 border-dashed border-b-[1px] border-white text-white">
+    <div className="w-1/4 h-screen bg-neutral-900 sticky top-0">
+      <div className="w-full  h-auto p-5 border-dashed border-b-[1px] border-white text-white text-[1.2rem]">
         Imagen mamalona
-      </nav>
-      <div className="h-screen bg-neutral-800 text-white">
+      </div>
+      <div className="text-white">
         <div className={open ? "sidebar-item open" : "sidebar-item"}>
           <div className="sidebar-title" onClick={() => setOpen(!open)}>
             <h1>

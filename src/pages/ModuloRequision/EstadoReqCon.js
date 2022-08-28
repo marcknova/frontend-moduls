@@ -36,7 +36,7 @@ const EstadoReqCon = () => {
             <td class="py-4 px-6">$2999</td>
             <td class="py-4 px-6 text-right">
               <a
-                href="#"
+                href="/"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
                 Edit
@@ -55,7 +55,7 @@ const EstadoReqCon = () => {
             <td class="py-4 px-6">$1999</td>
             <td class="py-4 px-6 text-right">
               <a
-                href="#"
+                href="/"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
                 Edit
@@ -74,7 +74,7 @@ const EstadoReqCon = () => {
             <td class="py-4 px-6">$99</td>
             <td class="py-4 px-6 text-right">
               <a
-                href="#"
+                href="/"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
                 Edit
