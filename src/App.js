@@ -1,18 +1,14 @@
 import "./App.css";
 // import { Route, Routes } from "react-router-dom";
-import Login from "./pages/login/Login";
-import Dashboard from "./components/dashboard/Dashboard";
-import { AuthContext } from "./components/context/UserContext";
+// import Login from "./pages/login/Login";
+// import Dashboard from "./components/dashboard/Dashboard";
+import { AuthContext } from "./context/UserContext";
 import { useContext } from "react";
+import { Redirect } from "./components/redirect/Redirect";
 
 function App() {
   const { user } = useContext(AuthContext);
-  return (
-    <>
-      {user.isLogin && <Dashboard />}
-      {!user.isLogin && <Login />}
-    </>
-  );
+  return <Redirect user={user} />;
 }
 
 export default App;

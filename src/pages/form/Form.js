@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import Img from "./officeWallpaper.jpg";
 import validate from "../../hooks/Validation";
 import TextInput from "../../hooks/TextInput";
+import { CreateForm } from "../../services/FormServices";
 
 const Forms = () => {
   return (
@@ -18,28 +19,19 @@ const Forms = () => {
         <div className="w-4/6 mx-10">
           <Formik
             initialValues={{
-              email: "",
-              phone: "",
-              department: "",
               name: "",
               lastName: "",
-              job: "",
+              phone: "",
               extension: "",
+              email: "",
+              department: "",
+              job: "",
             }}
             validate={validate}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => CreateForm(values)}
           >
             {(formik) => (
               <Form className="w-full" onSubmit={formik.handleSubmit}>
-                <div className="relative z-0 mb-6 w-full group">
-                  <TextInput name="email" label="Correo Electronico" />
-                </div>
-                <div className="relative z-0 mb-6 w-full group">
-                  <TextInput name="job" label="puesto" />
-                </div>
-                <div className="relative z-0 mb-6 w-full group">
-                  <TextInput name="department" label="Departamento" />
-                </div>
                 <div className="grid md:grid-cols-2 md:gap-6">
                   <div className="relative z-0 mb-6 w-full group">
                     <TextInput name="name" label="Nombre" />
@@ -55,6 +47,15 @@ const Forms = () => {
                   <div className="relative z-0 mb-6 w-full group">
                     <TextInput name="extension" label="Extension" />
                   </div>
+                </div>
+                <div className="relative z-0 mb-6 w-full group">
+                  <TextInput name="email" label="Correo Electronico" />
+                </div>
+                <div className="relative z-0 mb-6 w-full group">
+                  <TextInput name="job" label="puesto" />
+                </div>
+                <div className="relative z-0 mb-6 w-full group">
+                  <TextInput name="department" label="Departamento" />
                 </div>
                 <button
                   type="submit"
