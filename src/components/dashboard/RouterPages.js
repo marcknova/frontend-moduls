@@ -6,6 +6,7 @@ import RequisionM from "../../components/dashboardSections/requisicionM/Requisio
 import { RequisionIC } from "../../components/dashboardSections/requisicionIC/RequisionIC";
 import { EstadoReqUser } from "../../pages/ModuloRequision/EstadoReqUser";
 import Dashboard from "../dashboardSections/dashboard/Dashboard";
+import { EditarRequision } from "../../pages/ModuloRequision/EditarRequision";
 // import Login from "../../pages/login/Login";
 
 const RouterPages = () => {
@@ -23,6 +24,10 @@ const RouterPages = () => {
         <Route
           path="/moduloreqmobiliario/estadorequser"
           element={<EstadoReqUser />}
+        />
+        <Route
+          path="/moduloreqmobiliario/editar-req"
+          element={<EditarRequision />}
         />
         <Route path="/ModuloReqInvCompra" element={<RequisionIC />} />
         <Route path="/ModuloEventos" element={<Eventos />} />

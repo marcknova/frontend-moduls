@@ -26,10 +26,10 @@ export const CreateForm = async (form) => {
   }
 };
 
-export const ListAllForms = async (config) => {
+export const ListAllForms = async (header) => {
   try {
-    const API_URL = "http://localhost:3001/api/forms";
-    const res = await axios.get(API_URL, config);
+    const API_URL = "http://localhost:3001/api/forms/";
+    const res = await axios.get(API_URL, header);
     return res;
   } catch (e) {
     console.log(e);

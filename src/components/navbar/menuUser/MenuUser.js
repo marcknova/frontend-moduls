@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import PP from "../PP.png";
 import "./MenuUser.css";
 
 export const MenuUser = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="container-user absolute hidden bg-white w-auto text-black dark:bg-neutral-900 dark:text-white h-auto rounded-md shadow-lg top-[4.4rem] right-5 options">
       <div className="user flex flex-row p-3 border-b-[1px] border-gray-400">
@@ -24,9 +21,7 @@ export const MenuUser = () => {
           <h1>Configuracion De Perfil</h1>
         </div>
         <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-blue-500">
-          <h1 onClick={() => navigate("/authentication/layout/sign-in")}>
-            Cerrar Sesion
-          </h1>
+          <h1>Cerrar Sesion</h1>
         </div>
       </div>
     </div>
