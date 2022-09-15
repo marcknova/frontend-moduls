@@ -1,9 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/UserContext";
 import PP from "../PP.png";
 import "./MenuUser.css";
 
 export const MenuUser = () => {
-  const navigate = useNavigate();
+  const { signOut } = useContext(AuthContext);
+  const data = localStorage.getItem("data");
+  const dataUser = JSON.parse(data);
 
   return (
     <div className="container-user absolute hidden bg-white w-auto text-black dark:bg-neutral-900 dark:text-white h-auto rounded-md shadow-lg top-[4.4rem] right-5 options">
@@ -12,8 +15,8 @@ export const MenuUser = () => {
           <img src={PP} className="w-full h-full" alt="" />
         </div>
         <div className="mt-3 p-2 m-1 mr-10">
-          <h1 className="font-bold -mb-[8px]">Nanami Senpai</h1>
-          <span className="text-xs">nanami@gmail.com</span>
+          <h1 className="text-lg font-bold -mb-[8px]">{dataUser.usuario}</h1>
+          <span className="text-xs">{dataUser.correo}</span>
         </div>
       </div>
       <div className="content-items">
@@ -24,9 +27,7 @@ export const MenuUser = () => {
           <h1>Configuracion De Perfil</h1>
         </div>
         <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-blue-500">
-          <h1 onClick={() => navigate("/authentication/layout/sign-in")}>
-            Cerrar Sesion
-          </h1>
+          <h1 onClick={signOut}>Cerrar Sesion</h1>
         </div>
       </div>
     </div>

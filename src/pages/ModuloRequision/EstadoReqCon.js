@@ -1,90 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ListAllForms } from "../../services/FormServices";
 
 const EstadoReqCon = () => {
-  return (
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            <th scope="col" class="py-3 px-6">
-              Product name
-            </th>
-            <th scope="col" class="py-3 px-6">
-              Color
-            </th>
-            <th scope="col" class="py-3 px-6">
-              Category
-            </th>
-            <th scope="col" class="py-3 px-6">
-              Price
-            </th>
-            <th scope="col" class="py-3 px-6">
-              <span class="sr-only">Edit</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Apple MacBook Pro 17"
-            </th>
-            <td class="py-4 px-6">Sliver</td>
-            <td class="py-4 px-6">Laptop</td>
-            <td class="py-4 px-6">$2999</td>
-            <td class="py-4 px-6 text-right">
-              <a
-                href="/"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
+  const [datos, setDatos] = useState([]);
+  const [error, setError] = useState(false);
+  useEffect(() => {
+    const userToken = localStorage.getItem("user-token");
+    const config = {
+      headers: { Authorization: `bearer ${userToken}` },
+    };
+    ListAllForms(config).then((data) => {
+      setError(true);
+      setDatos(data);
+    });
+  }, []);
+  if (error) {
+    return (
+      <div className="overflow-x-auto">
+        <div className="dark:text-white font-bold text-xl text-center my-7">
+          <h1>Solicitudes Realizadas</h1>
+        </div>
+        <table className="w-full text-sm text-left text-gray-500 dark:text-white p-3 my-5">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-900 dark:text-white">
+            <tr>
+              <th scope="col" className="py-3 px-6">
+                ID
+              </th>
+              <th scope="col" className="py-3 px-6">
+                Nombre
+              </th>
+              <th scope="col" className="py-3 px-6">
+                Apellido
+              </th>
+              <th scope="col" className="py-3 px-6">
+                Correo
+              </th>
+              <th scope="col" className="py-3 px-6">
                 Edit
-              </a>
-            </td>
-          </tr>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Microsoft Surface Pro
-            </th>
-            <td class="py-4 px-6">White</td>
-            <td class="py-4 px-6">Laptop PC</td>
-            <td class="py-4 px-6">$1999</td>
-            <td class="py-4 px-6 text-right">
-              <a
-                href="/"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              </th>
+              <th scope="col" className="py-3 px-6">
+                Estatus
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {datos.data.data.map((dato) => (
+              <tr
+                key={dato.id_req}
+                className="bg-white border-b dark:bg-neutral-800 dark:border-white"
               >
-                Edit
-              </a>
-            </td>
-          </tr>
-          <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <th
-              scope="row"
-              class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Magic Mouse 2
-            </th>
-            <td class="py-4 px-6">Black</td>
-            <td class="py-4 px-6">Accessories</td>
-            <td class="py-4 px-6">$99</td>
-            <td class="py-4 px-6 text-right">
-              <a
-                href="/"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
+                <th
+                  scope="row"
+                  className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  {dato.id_req}
+                </th>
+                <td className="py-4 px-6">{dato.nombre}</td>
+                <td className="py-4 px-6">{dato.apellido}</td>
+                <td className="py-4 px-6">{dato.correo}</td>
+                <td className="py-4 px-6">
+                  <Link
+                    to="/moduloreqmobiliario/editreq"
+                    state={{ name: "Modulo de Requisicion", id: dato.id }}
+                  >
+                    <i className="fa-solid fa-pen-to-square text-lg"></i>
+                  </Link>
+                </td>
+                <td className="py-4 px-6">Pendiente</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 };
 
 export default EstadoReqCon;
