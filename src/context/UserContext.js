@@ -1,15 +1,16 @@
 import axios from "axios";
+import { useState } from "react";
 import { createContext } from "react";
 export const AuthContext = createContext();
 
-// const initialState = {
-//   usuario: null,
-//   correo: null,
-//   role: null,
-// };
+const initialState = {
+  usuario: null,
+  correo: null,
+  role: null,
+};
 
 export const AuthProvider = ({ children }) => {
-  // const [user, setUser] = useState(initialState);
+  const [user, setUser] = useState(initialState);
   // const [token, setToken] = useState(null);
 
   const AuthLogin = async (data) => {
@@ -25,20 +26,29 @@ export const AuthProvider = ({ children }) => {
         })
         .then((data) => {
           localStorage.setItem("token", data.data.data.token);
+          // window.location.reload(false);
+          setUser({
+            ...initialState,
+            usuario: data.data.data.user.usuario,
+            correo: data.data.data.user.correo,
+            role: data.data.data.user.role,
+          });
         });
     } catch (e) {
       console.log(e);
     }
   };
-
-  // const signOut = () => {
-  //   window.location.reload(false);
-  // };
+  console.log(user);
+  const signOut = () => {
+    localStorage.removeItem("token");
+    window.location.reload(false);
+  };
 
   return (
     <AuthContext.Provider
       value={{
-        // signOut,
+        user,
+        signOut,
         AuthLogin,
       }}
     >

@@ -1,5 +1,5 @@
 import "./LateralBar.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export const LateralBar = () => {
@@ -13,7 +13,7 @@ export const LateralBar = () => {
   return (
     <div className="w-1/4 h-screen bg-neutral-900 sticky top-0">
       <div className="w-full  h-auto p-5 border-dashed border-b-[1px] border-white text-white text-[1.2rem]">
-        Imagen mamalona
+        <Link to="/">Imagen mamalona</Link>
       </div>
       <div className="text-white">
         <div className={open ? "sidebar-item open" : "sidebar-item"}>
