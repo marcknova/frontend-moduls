@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import Eventos from "../../components/dashboardSections/eventos/Eventos";
-import Form from "../../pages/form/Form";
-import EstadoReqCon from "../../pages/ModuloRequision/EstadoReqCon";
-import RequisionM from "../../components/dashboardSections/requisicionM/RequisionM";
-import { RequisionIC } from "../../components/dashboardSections/requisicionIC/RequisionIC";
-import { EstadoReqUser } from "../../pages/ModuloRequision/EstadoReqUser";
-import Dashboard from "../dashboardSections/dashboard/Dashboard";
-import { EditarRequision } from "../../pages/ModuloRequision/EditarRequision";
+import Eventos from "../pages/dashboardSections/eventos/Eventos";
+import Form from "../components/form/Form";
+import EstadoReqCon from "../pages/dashboardSections/ModuloRequision/EstadoReqCon";
+import RequisionM from "../pages/dashboardSections/ModuloRequision/RequisionM";
+import { RequisionIC } from "../pages/dashboardSections/ModuloInvCom/RequisionIC";
+import { EstadoReqUser } from "../pages/dashboardSections/ModuloRequision/EstadoReqUser";
+import Dashboard from "../pages/dashboardSections/dashboard/Dashboard";
+import { EditarRequision } from "../pages/dashboardSections/ModuloRequision/EditarRequision";
 // import Login from "../../pages/login/Login";
 
 const RouterPages = () => {

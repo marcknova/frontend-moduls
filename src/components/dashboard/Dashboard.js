@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { LateralBar } from "../LateralBar/LateralBar";
 import Navbar from "../navbar/Navbar";
-import RouterPages from "./RouterPages";
+import RouterPages from "../../routes/RouterPages";
 
 export default function Dashboard() {
   const location = useLocation();

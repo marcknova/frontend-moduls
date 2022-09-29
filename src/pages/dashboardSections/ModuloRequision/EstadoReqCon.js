@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ListAllForms } from "../../services/FormServices";
+import { ListAllForms } from "../../../services/FormServices/FormServices";
 
 export default function EstadoReqCon() {
   const [datos, setDatos] = useState([]);
@@ -60,7 +60,7 @@ export default function EstadoReqCon() {
                 <td className="py-4 px-6">{data.celular}</td>
                 <td className="py-4 px-6 text-center">
                   <Link to="/moduloreqmobiliario/editar-req">
-                    <i class="fa-solid fa-pen-to-square text-xl"></i>
+                    <i className="fa-solid fa-pen-to-square text-xl"></i>
                   </Link>
                 </td>
                 <td className="py-4 px-6">Pendiente</td>

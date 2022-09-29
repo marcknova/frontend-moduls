@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { ListAllForms } from "../../services/FormServices";
+import { ListAllForms } from "../../../services/FormServices/FormServices";
 
 export const EstadoReqUser = () => {
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    const config = {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    };
-    ListAllForms(config).then((data) => setDatos(data.data.data));
+    ListAllForms().then((data) => setDatos(data.data.data));
   }, []);
   return (
     <div className="overflow-x-auto">

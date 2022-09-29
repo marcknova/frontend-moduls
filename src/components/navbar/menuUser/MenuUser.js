@@ -1,10 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../context/UserContext";
 import PP from "../PP.png";
 import "./MenuUser.css";
 
 export const MenuUser = () => {
-  const { signOut } = useContext(AuthContext);
+  const signOut = () => {
+    localStorage.clear("token");
+    window.location.reload(false);
+  };
   return (
     <div className="container-user absolute hidden bg-white w-auto text-black dark:bg-neutral-900 dark:text-white h-auto rounded-md shadow-lg top-[4.4rem] right-5 options">
       <div className="user flex flex-row p-3 border-b-[1px] border-gray-400">

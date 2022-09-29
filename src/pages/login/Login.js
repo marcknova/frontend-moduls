@@ -1,9 +1,27 @@
-import { Formik, Form, Field } from "formik";
-import { useContext } from "react";
-import { AuthContext } from "../../context/UserContext";
-import IMG from "./11007485.jpg";
+import { Formik, Form } from "formik";
+import AuthLogin from "../../services/UserServices/UserServices";
+import TextInput from "../../utils/TextInput";
+import IMG from "./linux.jpg";
+
+const validate = (values) => {
+  const errors = {};
+  let isValidEmail = new RegExp(
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+  if (!values.correo) {
+    errors.correo = "El Correo es requerido";
+  } else if (!isValidEmail.test(values.correo)) {
+    errors.correo = "Agregue un correo valido";
+  }
+  if (!values.contraseña) {
+    errors.contraseña = "La Contraseña es requerido";
+  } else if (values.contraseña.length < 4) {
+    errors.contraseña = "Contraseña demasiado corta";
+  }
+  return errors;
+};
+
 const Login = () => {
-  const { AuthLogin } = useContext(AuthContext);
   return (
     <>
       <section className="bg-gray-50 dark:bg-neutral-900">
@@ -23,42 +41,19 @@ const Login = () => {
                   correo: "",
                   contraseña: "",
                 }}
+                validate={validate}
                 onSubmit={(values) => AuthLogin(values)}
               >
                 <Form>
                   <div className="relative z-0 mb-8 w-full group">
-                    <Field
-                      type="email"
-                      name="correo"
-                      id="floating_email"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                      autoComplete="off"
-                      placeholder=" "
-                      required=""
-                    />
-                    <label
-                      htmlFor="floating_email"
-                      className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >
-                      Correo
-                    </label>
+                    <TextInput type="email" label="Correo" name="correo" />
                   </div>
                   <div className="relative z-0 mb-8 w-full group">
-                    <Field
+                    <TextInput
                       type="password"
+                      label="Contraseña"
                       name="contraseña"
-                      id="floating_password"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                      autoComplete="off"
-                      placeholder=" "
-                      required=""
                     />
-                    <label
-                      htmlFor="floating_password"
-                      className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                    >
-                      Contraseña
-                    </label>
                   </div>
                   <div className="w-full">
                     <button
@@ -68,6 +63,9 @@ const Login = () => {
                     >
                       Iniciar
                     </button>
+                    {/* {error ? (
+                      <h1 className="text-red-500 mt-4 text-center">{error}</h1>
+                    ) : null} */}
                   </div>
                 </Form>
               </Formik>

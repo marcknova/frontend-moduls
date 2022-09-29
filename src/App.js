@@ -1,5 +1,5 @@
 import "./App.css";
-import { Redirect } from "./components/redirect/Redirect";
+import { Redirect } from "./components/LoginRedirect/Redirect";
 
 function App() {
   return (
