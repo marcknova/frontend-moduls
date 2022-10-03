@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
-import AuthLogin from "../../services/UserServices/UserServices";
+import { useContext } from "react";
+import { AuthContext } from "../../context/usercontext/UserContext";
 import TextInput from "../../utils/TextInput";
 import IMG from "./linux.jpg";
 
@@ -22,9 +23,10 @@ const validate = (values) => {
 };
 
 const Login = () => {
+  const { AuthLogin } = useContext(AuthContext);
   return (
     <>
-      <section className="bg-gray-50 dark:bg-neutral-900">
+      <section className="w-full bg-gray-50 dark:bg-neutral-900">
         <div className="flex flex-row ">
           <div className="w-[42%] h-screen bg-black">
             <img src={IMG} className="w-full h-full" alt="" />

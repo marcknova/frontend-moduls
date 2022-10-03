@@ -1,11 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../context/usercontext/UserContext";
 import PP from "../PP.png";
 import "./MenuUser.css";
 
 export const MenuUser = () => {
-  const signOut = () => {
-    localStorage.clear("token");
-    window.location.reload(false);
-  };
+  const { signOut, user } = useContext(AuthContext);
   return (
     <div className="container-user absolute hidden bg-white w-auto text-black dark:bg-neutral-900 dark:text-white h-auto rounded-md shadow-lg top-[4.4rem] right-5 options">
       <div className="user flex flex-row p-3 border-b-[1px] border-gray-400">
@@ -13,8 +12,8 @@ export const MenuUser = () => {
           <img src={PP} className="w-full h-full" alt="" />
         </div>
         <div className="mt-3 p-2 m-1 mr-10">
-          <h1 className="font-bold -mb-[8px]">Nanami Senpai</h1>
-          <span className="text-xs">nanami@gmail.com</span>
+          <h1 className="font-bold -mb-[8px]">{user.user.usuario}</h1>
+          <span className="text-xs">{user.user.correo}</span>
         </div>
       </div>
       <div className="content-items">

@@ -6,10 +6,10 @@
 // } from "./actionTypes";
 
 export const initialState = {
-  user: {},
-  token: undefined,
-  errorMessage: undefined,
-  fetching: false,
+  user: JSON.parse(localStorage.getItem("data")),
+  token: localStorage.getItem("token"),
+  error: localStorage.getItem("error"),
+  isLoading: localStorage.getItem("isLoading"),
 };
 
 export const reducer = (initialState, action) => {
@@ -18,26 +18,37 @@ export const reducer = (initialState, action) => {
   switch (type) {
     case "REQUEST_LOGIN":
       return {
-        user: { payload },
+        user: {},
         token: false,
-        errorMessage: false,
-        fetching: true,
+        error: false,
+        isLoading: false,
       };
     case "LOGIN_SUCCESS":
       return {
         ...initialState,
-        user: payload,
-        token: true,
-        errorMessage: false,
-        fetching: true,
+        user: localStorage.setItem(
+          "data",
+          JSON.stringify(payload.data.data.user)
+        ),
+        token: localStorage.setItem("token", payload.data.data.token),
+        error: localStorage.setItem("error", false),
+        isLoading: localStorage.setItem("isLoading", true),
       };
     case "LOGOUT":
       return {
         ...initialState,
+        user: localStorage.clear("data"),
+        token: localStorage.clear("token"),
+        error: localStorage.clear("error"),
+        isLoading: localStorage.clear("isLoading"),
       };
     case "LOGIN_ERROR":
       return {
         ...initialState,
+        user: {},
+        token: null,
+        error: localStorage.setItem("error", true),
+        isLoading: localStorage.setItem("isLoading", false),
       };
     default:
       throw new Error("Error sensual :v");

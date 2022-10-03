@@ -40,7 +40,7 @@ const RequisionM = () => {
         <div className="max-w-lg my-8 rounded-lg bg-white border dark:bg-neutral-900 border-gray-200 dark:border-none shadow-lg ml-auto mr-auto h-[72%]">
           <div className="p-5">
             <h5 className="mb-2 text-xl font-bold tracking-tight text-black dark:text-white">
-              Seguimiento de Requisicion
+              Seguimiento de Requisicion (Contador)
             </h5>
             <p className="mb-3 text-sm font-normal text-gray-400">
               Seguimiento y validacion de Requisicion propuesta por el usuario

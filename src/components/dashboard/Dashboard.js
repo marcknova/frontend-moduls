@@ -5,7 +5,6 @@ import RouterPages from "../../routes/RouterPages";
 
 export default function Dashboard() {
   const location = useLocation();
-
   return (
     <div className="flex bg-slate-50 dark:bg-neutral-800">
       <LateralBar />

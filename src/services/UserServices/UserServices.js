@@ -1,9 +1,5 @@
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../../context/usercontext/UserContext";
-
 export default async function AuthLogin(data) {
-  const { setUser } = useContext(AuthContext);
   try {
     const { correo, contraseña } = data;
     let payload = JSON.stringify({ correo, contraseña });
@@ -15,9 +11,10 @@ export default async function AuthLogin(data) {
         },
       })
       .then((data) => {
-        console.log(data);
-        localStorage.setItem("token", data.data.data.token);
-        localStorage.setItem("data", { data: data.data.data.user });
+        console.log("Aqui estan los datos del usuario", data.data.data.user);
+        console.log("Aqui esta el token sensual", data.data.data.token);
+        // localStorage.setItem("token", data.data.data.token);
+        // localStorage.setItem("data", { data: data.data.data.user });
         // window.location.reload(false);
       });
   } catch (e) {
