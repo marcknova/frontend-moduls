@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/usercontext/UserContext";
 import PP from "../PP.png";
 import "./MenuUser.css";
@@ -17,13 +18,17 @@ export const MenuUser = () => {
         </div>
       </div>
       <div className="content-items">
-        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-blue-500">
-          <h1>Perfil</h1>
+        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-[#009EF7]">
+          <Link to="/user/profile">
+            <h1>Perfil</h1>
+          </Link>
         </div>
-        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-blue-500">
-          <h1>Configuracion De Perfil</h1>
+        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-[#009EF7]">
+          <Link to="/user/edit-user">
+            <h1>Configuracion De Perfil</h1>
+          </Link>
         </div>
-        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-blue-500">
+        <div className="opciones rounded-md hover:dark:bg-neutral-800 hover:bg-slate-50 hover:text-[#009EF7]">
           <h1 onClick={signOut}>Cerrar Sesion</h1>
         </div>
       </div>

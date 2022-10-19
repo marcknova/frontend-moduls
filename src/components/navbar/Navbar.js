@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Toggle from "../../context/darkmode/Toogle";
+import MenuHamburger from "./menuHamburger/MenuHamburger";
 import { MenuUser } from "./menuUser/MenuUser";
 import PP from "./PP.png";
 
@@ -9,6 +10,7 @@ export default function Navbar() {
   return (
     <header className="bg-blue-500 dark:bg-neutral-900 flex h-auto p-[0.70rem]">
       <nav className="w-full text-white">
+        <MenuHamburger />
         <ul className="flex flex-row justify-end">
           <li className="mx-2 my-auto dark:hover:bg-neutral-800 dark:hover:text-blue-500 rounded-md p-2 cursor-pointer">
             <i className="fa-solid fa-magnifying-glass text-xl"></i>

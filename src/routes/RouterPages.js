@@ -11,6 +11,8 @@ import { useContext } from "react";
 import { AuthContext } from "../context/usercontext/UserContext";
 // import Login from "../pages/login/Login";
 import { ProtectedRoute } from "../components/protectedRouter/ProtectedRoute";
+import EditUser from "../pages/userProfile/editUser/EditUser";
+import UserInfo from "../pages/userProfile/userInfo/UserInfo";
 
 const RouterPages = () => {
   const { user } = useContext(AuthContext);
@@ -30,6 +32,8 @@ const RouterPages = () => {
             path="/moduloreqmobiliario/estadorequser"
             element={<EstadoReqUser />}
           />
+          <Route path="/user/profile" element={<UserInfo />} />
+          <Route path="/user/edit-user" element={<EditUser />} />
         </Route>
 
         <Route
@@ -37,7 +41,10 @@ const RouterPages = () => {
           element={
             <ProtectedRoute
               redirectTo="/"
-              isAllowed={!!user && user.user.role === "contador"}
+              isAllowed={
+                (!!user && user.user.role === "contador") ||
+                user.user.role === "admin"
+              }
             >
               <EditarRequision />
             </ProtectedRoute>
@@ -49,7 +56,10 @@ const RouterPages = () => {
           element={
             <ProtectedRoute
               redirectTo="/"
-              isAllowed={!!user && user.user.role === "contador"}
+              isAllowed={
+                (!!user && user.user.role === "contador") ||
+                user.user.role === "admin"
+              }
             >
               <EstadoReqCon />
             </ProtectedRoute>

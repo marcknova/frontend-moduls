@@ -1,9 +1,11 @@
 import "./LateralBar.css";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/usercontext/UserContext";
 
 export const LateralBar = () => {
   const [open, setOpen] = useState(false);
+  const { hamburger } = useContext(AuthContext);
   let activeStyle = {
     // width: "100%",
     // backgroundColor: "#2D2D2D",
@@ -11,8 +13,14 @@ export const LateralBar = () => {
   };
 
   return (
-    <div className="w-1/4 h-screen bg-neutral-900 sticky top-0">
-      <div className="w-full  h-auto p-5 border-dashed border-b-[1px] border-white text-white text-[1.2rem]">
+    <div
+      className={
+        hamburger
+          ? "md:w-1/4 w-[75%] md:m-0 -ml-[100%] h-screen bg-neutral-900 md:sticky top-0 md:block absolute"
+          : "md:w-1/4 w-[75%] md:m-0 h-screen bg-neutral-900 md:sticky top-0 md:block absolute"
+      }
+    >
+      <div className="w-full h-auto p-5 border-dashed border-b-[1px] border-white text-white text-[1.2rem]">
         <Link to="/">Imagen mamalona</Link>
       </div>
       <div className="text-white">
